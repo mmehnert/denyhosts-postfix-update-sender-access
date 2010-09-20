@@ -151,7 +151,7 @@ class MyDaemon(Daemon):
             do_main_program()
 
 if __name__ == "__main__":
-    daemon = MyDaemon('/var/run/'+sys.argv[0]+'.pid')
+    daemon = MyDaemon('/var/run/'+os.path.basename(sys.argv[0])+'.pid')
     if len(sys.argv) == 2:
         if 'start' == sys.argv[1]:
             daemon.start()
